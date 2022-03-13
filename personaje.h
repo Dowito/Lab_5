@@ -1,21 +1,17 @@
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 
-#include <QObject>
-#include <QGraphicsPixmapItem>
+#include <objeto.h>
 
-class Personaje : public QObject, public QGraphicsPixmapItem //herencia para obtener las propiedades para ser representado en ui y tener compatibilidad
+class Personaje : public Objeto //herencia para obtener las propiedades para ser representado en ui y tener compatibilidad
 {
-    Q_OBJECT
 public:
-    explicit Personaje(QObject *parent = nullptr);
-
+    Personaje() {};
     Personaje(QString name);
 
-
-
-signals:
-
+private:
+    unsigned char lifes;
+    unsigned char bombas; //cantidad de bombas que puede poner simumlta
 };
 
 #endif // PERSONAJE_H

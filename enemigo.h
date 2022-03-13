@@ -1,20 +1,15 @@
 #ifndef ENEMIGO_H
 #define ENEMIGO_H
 
-#include <QObject>
-#include <QGraphicsPixmapItem>
-#include <QString>
-#include <QVector>
-struct VectorEnemigo{
-    QString imagen;
-    QVector<int> pos; //(0,0,x,y)
-};
+#include <objeto.h>
 
-class Enemigo : public QObject, public QGraphicsPixmapItem
+class Enemigo : public Objeto
 {
-    Q_OBJECT
 public:
+    Enemigo() {};
     Enemigo(QString name);
+private:
+    unsigned short vel;
 };
 
 #endif // ENEMIGO_H
