@@ -1,8 +1,11 @@
 {\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
-{\colortbl ;\red255\green0\blue0;\red255\green255\blue0;\red0\green255\blue255;}
+{\colortbl ;\red255\green0\blue0;\red255\green255\blue0;\red0\green255\blue0;\red0\green255\blue255;}
 {\*\generator Riched20 10.0.19041}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\f0\fs22\lang10 CLASES:\par
-Interactuan fisicamente:\par
+\cf1\b Entidades fisicas:\cf0\b0\par
+Esto es que tienen tanto ancho como alto.\par
+Como estoy usando sprites de 48x48 pixeles, todo tendra ancho = altura = 48(quizas unos cuentos pixeles menos para que se vea mejor cuando colisionan)\par
+Los unico que tendran un ancho y alto distintos sera el Nivel, y las explosiones de las bombas, las cuales sus dimenciones seran dinamicas a medida, constan de un pilar de   48x48*n el cual puede ser vertical u horizontal, y n sera la cantidad de aumentos que haya conseguido el personajes, siendo 1 el inicial. \par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Personaje\par
 {\pntext\f1\'B7\tab}Enemigos\par
@@ -11,9 +14,13 @@ Interactuan fisicamente:\par
 {\pntext\f1\'B7\tab}Explosion bombas\par
 {\pntext\f1\'B7\tab}Aumentos\par
 {\pntext\f1\'B7\tab}Nivel (se ira mostrando en escena y tendra ciertos bloques)\par
-{\pntext\f1\'B7\tab}interfaz\par
 
-\pard\sa200\sl276\slmult1 Logica/funcionamiento del juego:\par
+\pard\sa200\sl276\slmult1\par
+\cf1 No Fisicos:\cf0\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Interfaz\par
+
+\pard\sa200\sl276\slmult1\cf1 Logica/funcionamiento del juego:\cf0\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Tiempos(no se)\par
 {\pntext\f1\'B7\tab}Colisiones:(fisicas)\par
@@ -21,8 +28,13 @@ Interactuan fisicamente:\par
 {\pntext\f1\'B7\tab}Inteligencia de los bichos (la unica inteligencia que tienen es la de saber a que direccion moverce, que vean todas las direcciones validas, y luego decidan a cual ir Quizas programar alguna logica que si toman una direccion que solo la cambien si chocan con algo o que al inicial tengan cierta resistencia a cambiar de direccion para que no sea todo tan erratico.)\par
 
 \pard\sa200\sl276\slmult1\par
-\cf1 Interacciones FIsicas:\cf0\par
-\b Personaje:\b0\par
+\cf1 Entidades Fisicas:\par
+\cf0 Todos los objetos fisicos se iniciaran con un Pixmap(un sprite) y con un ancho y alto por defecto(~48).  algunos interactiones con otros, por ejemplo las bombas no interactuan con los bloques, ya que son estaticos, pero las explosiones que producen las bombas si interactuan con dichos bloques.\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Ancho.\par
+{\pntext\f1\'B7\tab}Alto.  \par
+
+\pard\sa200\sl276\slmult1\b Personaje:\b0\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\highlight2 Estado: vivo o muerto\highlight0 , esta ligado si colisiona con un enemigo o con la explocion de una bomba. (Si muere sale de escena y donde estaba entra el sprite con la animacion de muerte esto probablemene se maneje por fuera).\par
 {\pntext\f1\'B7\tab}\highlight2 Vidas\highlight0 : vidas restantes, puede conseguir vidas de los bloques, cada qe muere se le resta  una vida, si llega a 0 el juego termina\par
@@ -41,7 +53,8 @@ Interactuan fisicamente:\par
 {\pntext\f0 d.\tab}Explosion: cambia su estado a muerto.\tab\tab\par
 
 \pard\sa200\sl276\slmult1\par
-\b Enemigos\b0\par
+\b Enemigos\par
+\b0 Se inicia con un \highlight3 sprite\highlight0 , y con una \highlight3 posicion inicial\highlight0\b .\b0\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 estado: vivo o muerto, si colisiona con la explocion de una bomba\par
 {\pntext\f1\'B7\tab}velocidad:\par
@@ -120,7 +133,7 @@ El escenario se inicia ubicando los bloques indestructibles por defecto, luego e
 \fi-360\li1080\sa200\sl276\slmult1 jugador: El escenario se ira moviendo a medida que el jugador se dezplaza desde cierto punto (podria ser desde el centro del escenario) si se mueve hacia la derecha, el escenario se movera hacia al derecha\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Nivel: nivel actual.\par
-{\pntext\f1\'B7\tab}\highlight3 Bordes\highlight0  (quizas haga una clase para eso): interantuan con el jugador y con los enemigos para que estos no puedan salirce del escenario.\par
+{\pntext\f1\'B7\tab}\highlight4 Bordes\highlight0  (quizas haga una clase para eso): interantuan con el jugador y con los enemigos para que estos no puedan salirce del escenario.\par
 
 \pard\sa200\sl276\slmult1\cf1 No Fisico con imagen:\cf0\par
 
@@ -143,6 +156,34 @@ Por ejemplo, si se colisiones con el borde, seactivara una funcion que te devuel
 Si se choca con un enemigo o una explosion, el estado del jugador pasara a ser muerto. se restara una vida, y si se detecta que ya no hay mas vidas, sale pantalla de gameover.\par
 \b Movimientos:\par
 \b0 La forma en que se moveran los bichos, cambiaran su posicion segun que velocidad, llevara un timer, que ejecuta dicha funcion cada cierto tiempo, y revisara las direcciones validas para moverse, y luego escogera alguna de entre ellas, y seguira moviendoce hacia esa dirreccion hasta que se choque, o hasta que encuentre una nueva dirrecion valida que sea distinta a la anterior, hara una tirada para decirdir si cambiar su movimiento hacia esa neuva direccion.\par
+\par
+\par
+\cf1\b Analisis Parametros:\par
+\cf0 Nivel:\par
+\b0 En total son 11 filas cada una de 48 pixiles que compondran el nivel, siendo el total 528 pixiles, asi el alto del nivel sera de 528, y el largo se podra poner lo que me salga de los cojones. Tiene que ser rectangular el nivel.\cf1\b\par
+\par
+\cf0\b0\par
+\b SLOT(moveEnemigo):\par
+\b0 El jugador se movera dia +2\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 +position:\par
+
+\pard 
+{\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
+\fi-360\li1080\sa200\sl276\slmult1 timer = 1s, posicion  +10: da brincos. \highlight3 quizas sea aceptable\highlight0\par
+{\pntext\f0 b.\tab}timer=1s, posicion +1: demaciado lento.\par
+{\pntext\f0 c.\tab}timer=100s, queda decente apartir de +3\par
+
+\pard\sa200\sl276\slmult1\par
+\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 timer:\par
+
+\pard 
+{\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
+\fi-360\li1080\sa200\sl276\slmult1\par
+
+\pard\sa200\sl276\slmult1\par
 \par
 \par
 \par

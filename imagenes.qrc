@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/imagenes">
-        <file>Sprites/Enemigos.png</file>
         <file>Sprites/Personaje1.png</file>
         <file>Sprites/Personaje2.png</file>
-        <file>Sprites/Personaje1 - sprite.png</file>
+        <file>Sprites/Personaje1- sprite.png</file>
+        <file>Sprites/Hombre lobo.png</file>
+        <file>Sprites/Furro.png</file>
     </qresource>
 </RCC>
