@@ -50,8 +50,8 @@ Juego::Juego(QWidget *parent)
     enemigo[1]->setPos(48,0);
 
     //inicializando bloques
-    bloque = new Bloque(":/imagenes/Sprites/Bloque.png", 48, 48, posB);
-    destruible = new Destruible(":/imagenes/Sprites/Destruible.png", 48, 48, posD, true, true, "Llave");
+    bloque = new Bloque(":/imagenes/Sprites/Bloque.png", posB, 48, 48);
+    destruible = new Destruible(":/imagenes/Sprites/Destruible.png", posD,48, 48, true, true, "Llave");
 
     //agregando elementos a mostrar en pantalla a la escena
     escena->addItem(personaje);

@@ -7,10 +7,14 @@ class Aumento : public Objeto
 public:
     Aumento() {};
     Aumento(QString name,
-            unsigned short label);
+            QVector<unsigned short> pos,
+            char label);
+
+    char getLabel() const;
+    void setLabel(char newLabel);
 
 private:
-    unsigned short label; //etiqueta que dire que tipo de aumento lleva
+    char label; //etiqueta que dire que tipo de aumento lleva
     //LLevaran sprite distinto segun la label
     //+bombas al jugador
     //+radio a bomba

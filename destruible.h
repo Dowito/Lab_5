@@ -7,10 +7,10 @@ class Destruible : public Bloque
 public:
     Destruible() {};
     Destruible(QString name,
-               unsigned short width,
-               unsigned short height,
                QVector<unsigned short> pos,
                bool state,
+               unsigned short width,
+               unsigned short height,
                bool drop,
                QString content);
 

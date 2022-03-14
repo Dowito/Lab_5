@@ -8,9 +8,9 @@ class Bloque : public Objeto
 public:
     Bloque() {};
     Bloque(QString name,
+           QVector<unsigned short> pos,
            unsigned short width,
-           unsigned short height,
-           QVector<unsigned short> pos);
+           unsigned short height);
 };
 
 #endif // BLOQUE_H

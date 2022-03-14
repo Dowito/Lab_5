@@ -38,6 +38,12 @@ public:
            unsigned short width,
            unsigned short height);
 
+    Objeto(QString name,
+           QVector<unsigned short> pos,
+           bool state,
+           unsigned short width,
+           unsigned short height);
+
     unsigned int getWidth() const;
     void setWidth(unsigned int newWidth);
 

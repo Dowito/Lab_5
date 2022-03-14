@@ -1,8 +1,19 @@
 #include "aumento.h"
 
 Aumento::Aumento(QString name,
-                 unsigned short label):Objeto(name)
+                 QVector<unsigned short> pos,
+                 char label):Objeto(name, pos)
 {
-    state = 0;
+    state = false;
     this->label = label;
+}
+
+char Aumento::getLabel() const
+{
+    return label;
+}
+
+void Aumento::setLabel(char newLabel)
+{
+    label = newLabel;
 }
