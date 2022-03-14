@@ -7,16 +7,13 @@ class Enemigo : public Objeto
 {
 public:
     Enemigo() {};
-    Enemigo(QString name, unsigned short vel);
-
-    bool getState() const;
-    void setState(bool newEstado);
+    Enemigo(QString name,
+            unsigned short vel);
 
     unsigned short getVel() const;
     void setVel(unsigned short newVel);
 
 private:
-    bool state; //por defecto true
     unsigned short vel; //la velocidad sera un parametro del constructor, asi se crearan diferentes enemigos
 };
 

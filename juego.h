@@ -1,13 +1,12 @@
 #ifndef JUEGO_H
 #define JUEGO_H
-
 #include <QMainWindow>
 #include "ui_juego.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QTimer>
-
 #include <QString>
+
 #include <objeto.h>
 #include <personaje.h>
 #include <enemigo.h>
@@ -34,7 +33,7 @@ private:
     QGraphicsScene *escena;
     Personaje *personaje;
     Enemigo *enemigo[2];
-    Bloque *bloque;
+    Bloque *bloque[2];
     QTimer *time;
 };
 #endif // JUEGO_H

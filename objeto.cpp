@@ -5,6 +5,23 @@ Objeto::Objeto(QString name)
     setPixmap(QPixmap(name));
     width = 48;
     height = 48;
+    state = true;
+}
+
+Objeto::Objeto(QString name, bool state)
+{
+    setPixmap(QPixmap(name));
+    this->state = state;
+    width = 48;
+    height = 48;
+}
+
+Objeto::Objeto(QString name, bool state, unsigned short width, unsigned short height)
+{
+    setPixmap(QPixmap(name).scaled(width,height));
+    this->state = state;
+    this->width = width;
+    this->height = height;
 }
 
 unsigned int Objeto::getWidth() const
@@ -25,4 +42,14 @@ unsigned int Objeto::getHeight() const
 void Objeto::setHeight(unsigned int newHeight)
 {
     height = newHeight;
+}
+
+bool Objeto::getState() const
+{
+    return state;
+}
+
+void Objeto::setState(bool newState)
+{
+    state = newState;
 }

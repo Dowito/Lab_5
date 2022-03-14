@@ -2,15 +2,23 @@
 #define BLOQUE_H
 
 #include <objeto.h>
-#include <QVector>
+
 class Bloque : public Objeto
 {
 public:
     Bloque() {};
-    Bloque(QString name, QVector<unsigned short> pos); //se inicializan con la pos, ya que sus ubicaciones son exactas
+    Bloque(QString name,
+           bool state,
+           unsigned short width,
+           unsigned short height,
+           QVector<unsigned short> pos,
+           bool destructible);
+
+    bool getDestructible() const;
+    void setDestructible(bool newDestructible);
 
 private:
-    //La unica propiedad que tienes es que no es atravesable.
+    bool destructible; //es un bloque destructible o no
 };
 
 #endif // BLOQUE_H

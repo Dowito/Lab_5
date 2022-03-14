@@ -2,8 +2,9 @@
 #define OBJETO_H
 
 #include <QObject>
-#include <QString>
 #include <QGraphicsPixmapItem>
+#include <QString>
+#include <QVector>
 
 class Objeto : public QObject , public QGraphicsPixmapItem
 {
@@ -15,7 +16,15 @@ public:
      * Como los sprites son de 48x48 pixeles, de se definen el ancho y la altura por defecto en 48
      * \param name nombre del sprite del objeto
      */
-    Objeto(QString name); //Inicializar cuqluier objeto con su respectivo sprite inicial.
+    Objeto(QString name);
+
+    Objeto(QString name,
+           bool state);
+
+    Objeto(QString name,
+           bool state,
+           unsigned short width,
+           unsigned short height);
 
     unsigned int getWidth() const;
     void setWidth(unsigned int newWidth);
@@ -23,7 +32,11 @@ public:
     unsigned int getHeight() const;
     void setHeight(unsigned int newHeight);
 
+    bool getState() const;
+    void setState(bool newState);
+
 protected:
+    bool state;
     unsigned short width;
     unsigned short height;
 };

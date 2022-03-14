@@ -5,5 +5,8 @@
         <file>Sprites/Personaje1- sprite.png</file>
         <file>Sprites/Hombre lobo.png</file>
         <file>Sprites/Furro.png</file>
+        <file>Sprites/Bloque.png</file>
+        <file>Sprites/Destruible.png</file>
+        <file>Sprites/piso.png</file>
     </qresource>
 </RCC>

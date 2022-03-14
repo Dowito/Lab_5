@@ -2,20 +2,10 @@
 
 Personaje::Personaje(QString name):Objeto(name)
 {
-    estado = true;
     lifes = 9;
     vel = 2;
     bombs = 1;
-}
-
-bool Personaje::getEstado() const
-{
-    return estado;
-}
-
-void Personaje::setEstado(bool newEstado)
-{
-    estado = newEstado;
+    key = false;
 }
 
 unsigned char Personaje::getLifes() const

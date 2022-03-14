@@ -9,9 +9,6 @@ public:
     Personaje() {};
     Personaje(QString name);
 
-    bool getEstado() const;
-    void setEstado(bool newEstado);
-
     unsigned char getLifes() const;
     void setLifes(unsigned char newLifes);
 
@@ -22,11 +19,10 @@ public:
     void setVel(unsigned char newVel);
 
 private:
-    bool estado; //por defecto true
     unsigned char lifes; //vidas faltantes antes de terminar el juego
     unsigned char bombs; //defecto 1
     unsigned char vel; //por defecto 2
-
+    bool key; //Llave para pasar al siguiente nivel, se inicia en false
 };
 
 #endif // PERSONAJE_H
