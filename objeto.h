@@ -22,6 +22,14 @@ public:
            bool state);
 
     Objeto(QString name,
+           QVector<unsigned short> pos);
+
+    Objeto(QString name,
+           unsigned short width,
+           unsigned short height);
+
+    Objeto(QString name,
+           QVector<unsigned short> pos,
            unsigned short width,
            unsigned short height);
 

@@ -6,7 +6,6 @@ Objeto::Objeto(QString name)
     state = true;
     width = 48;
     height = 48;
-    state = true;
 }
 
 Objeto::Objeto(QString name, bool state)
@@ -17,9 +16,27 @@ Objeto::Objeto(QString name, bool state)
     height = 48;
 }
 
+Objeto::Objeto(QString name, QVector<unsigned short> pos)
+{
+    setPixmap(QPixmap(name));
+    setPos(pos[0],pos[1]);
+    state = true;
+    width = 48;
+    height = 48;
+}
+
 Objeto::Objeto(QString name, unsigned short width, unsigned short height)
 {
     setPixmap(QPixmap(name).scaled(width,height));
+    state = true;
+    this->width = width;
+    this->height = height;
+}
+
+Objeto::Objeto(QString name, QVector<unsigned short> pos, unsigned short width, unsigned short height)
+{
+    setPixmap(QPixmap(name).scaled(width,height));
+    setPos(pos[0],pos[1]);
     state = true;
     this->width = width;
     this->height = height;

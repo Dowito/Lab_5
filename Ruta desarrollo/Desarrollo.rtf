@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
-{\colortbl ;\red255\green0\blue0;\red255\green255\blue0;\red0\green255\blue0;\red0\green255\blue255;}
+{\colortbl ;\red255\green0\blue0;\red255\green255\blue0;\red0\green255\blue0;}
 {\*\generator Riched20 10.0.19041}\viewkind4\uc1 
-\pard\sa200\sl276\slmult1\f0\fs22\lang10 CLASES:\par
+\pard\sa200\sl276\slmult1\b\f0\fs22\lang10 CLASES:\b0\par
 \cf1\b Entidades fisicas:\cf0\b0\par
 Esto es que tienen tanto ancho como alto.\par
 Como estoy usando sprites de 48x48 pixeles, todo tendra ancho = altura = 48(quizas unos cuentos pixeles menos para que se vea mejor cuando colisionan)\par
@@ -10,9 +10,16 @@ Los unico que tendran un ancho y alto distintos sera el Nivel, y las explosiones
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Personaje\par
 {\pntext\f1\'B7\tab}Enemigos\par
 {\pntext\f1\'B7\tab}Bloques\par
-{\pntext\f1\'B7\tab}Bombas\par
+
+\pard 
+{\pntext\f0 I.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnucrm{\pntxta.}}
+\fi-360\li1080\sa200\sl276\slmult1 Bloques destruibles\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Bombas\par
 {\pntext\f1\'B7\tab}Explosion bombas\par
 {\pntext\f1\'B7\tab}Aumentos\par
+{\pntext\f1\'B7\tab}Llave\par
+{\pntext\f1\'B7\tab}Puerta al siguiente nivel\par
 {\pntext\f1\'B7\tab}Nivel (se ira mostrando en escena y tendra ciertos bloques)\par
 
 \pard\sa200\sl276\slmult1\par
@@ -23,38 +30,45 @@ Los unico que tendran un ancho y alto distintos sera el Nivel, y las explosiones
 \pard\sa200\sl276\slmult1\cf1 Logica/funcionamiento del juego:\cf0\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Tiempos(no se)\par
+{\pntext\f1\'B7\tab}Usuario: llevara el conteo de vida, el estado del jugador, \par
 {\pntext\f1\'B7\tab}Colisiones:(fisicas)\par
 {\pntext\f1\'B7\tab}logica(Talvez logica y Fisicas sean lo mismo)\par
 {\pntext\f1\'B7\tab}Inteligencia de los bichos (la unica inteligencia que tienen es la de saber a que direccion moverce, que vean todas las direcciones validas, y luego decidan a cual ir Quizas programar alguna logica que si toman una direccion que solo la cambien si chocan con algo o que al inicial tengan cierta resistencia a cambiar de direccion para que no sea todo tan erratico.)\par
 
 \pard\sa200\sl276\slmult1\par
 \cf1 Entidades Fisicas:\par
-\cf0 Todos los objetos fisicos se iniciaran con un Pixmap(un sprite) y con un ancho y alto por defecto(~48).  algunos interactiones con otros, por ejemplo las bombas no interactuan con los bloques, ya que son estaticos, pero las explosiones que producen las bombas si interactuan con dichos bloques.\par
+\cf0 Todos los objetos fisicos se iniciaran con un Pixmap(un sprite) y con un ancho y alto por defecto(~48).  algunas interactiones con otros, por ejemplo las bombas no interactuan con los bloques, ya que son estaticos, pero las explosiones que producen las bombas si interactuan con dichos bloques.\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Ancho.\par
 {\pntext\f1\'B7\tab}Alto.  \par
 
-\pard\sa200\sl276\slmult1\b Personaje:\b0\par
+\pard\sa200\sl276\slmult1\par
+La posicion iniciales de cada objeto, la manejare por fuera del constructor, ya que es necesario que se genere de maneras aleatorias al inicio de cada nivel.\par
+\b Personaje:\par
+\b0 El personaje siempre se iniciara en la pos ezquina superior derecha del nivel. y se garantizara que tenga suficiente espacio como para explotar una bomba sin morir o que no aparezca un enemigo cercano.\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\highlight2 Estado: vivo o muerto\highlight0 , esta ligado si colisiona con un enemigo o con la explocion de una bomba. (Si muere sale de escena y donde estaba entra el sprite con la animacion de muerte esto probablemene se maneje por fuera).\par
 {\pntext\f1\'B7\tab}\highlight2 Vidas\highlight0 : vidas restantes, puede conseguir vidas de los bloques, cada qe muere se le resta  una vida, si llega a 0 el juego termina\par
-{\pntext\f1\'B7\tab} \highlight2 aumentos\highlight0 : Ver clase aumentos (++#bombas, +velocidad, ++radioexplosion,)\par
+{\pntext\f1\'B7\tab} aumentos: Ver clase aumentos (++#bombas, +velocidad, ++radioexplosion,)\par
 {\pntext\f1\'B7\tab}velocidad: velocidad con que se mueve, cantidad de unidades que cambia de posicion en x o y al presionar la tecla correspondiente.  personajes->setPos(personajes->x() +/- velocidad) (como sabe que recoje un aumento, esto talez se vaya a otra clase que maneje eso)\par
 {\pntext\f1\'B7\tab}cantidad bombas:  1, si recoje aumento\par
-{\pntext\f1\'B7\tab}radioexplosion: casillas de la explosion\par
-{\pntext\f1\'B7\tab}\highlight2 puntaje: \highlight0 no estoy seguro si es mejor manejar el puntaje por fuera de la clase y ponerla en otra que se encargue de manejarlo junto al contador.\par
-{\pntext\f1\'B7\tab}\highlight2 interacciones: (ver colisiones)\highlight0  esto si hay colision de areas, la iteraccion con cada objetos con el que pueda interaccionar es distinta.\par
+{\pntext\f1\'B7\tab}\highlight2 radioexplosion: \highlight0 casillas de la explosion (probablemente solo lo ponga en bombas, y que le aumento que aumenta el radio de explosion, soo la afecte a ella)\par
+{\pntext\f1\'B7\tab}\highlight2 puntaje: no \highlight0 estoy seguro si es mejor manejar el puntaje por fuera de la clase y ponerla en otra que se encargue de manejarlo junto al contador. Creo que mejormanejare esto en una clase aparte, que sea usuario o algo asi.\par
+{\pntext\f1\'B7\tab}llave: que lleva la llave consigo.\par
+{\pntext\f1\'B7\tab}\highlight1 interacciones: (ver colisiones) \highlight0 esto si hay colision de areas, la iteraccion con cada objetos con el que pueda interaccionar es distinta.\par
 
 \pard 
 {\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
 \fi-360\li1080\sa200\sl276\slmult1 Bloques: no puede atravesarlos\par
 {\pntext\f0 b.\tab}Enemigo: cambia su esstado a muerto\par
 {\pntext\f0 c.\tab}Bomba: no puede atravesarlas\par
-{\pntext\f0 d.\tab}Explosion: cambia su estado a muerto.\tab\tab\par
+{\pntext\f0 d.\tab}Explosion: cambia su estado a muerto.\tab\par
+{\pntext\f0 e.\tab}\highlight3 Llave\par
+{\pntext\f0 f.\tab}Puerta\highlight0\tab\par
 
 \pard\sa200\sl276\slmult1\par
 \b Enemigos\par
-\b0 Se inicia con un \highlight3 sprite\highlight0 , y con una \highlight3 posicion inicial\highlight0\b .\b0\par
+\b0 Se inicia con un sprite, y con una \highlight3 posicion inicial aleatoria\highlight0\b .\b0\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 estado: vivo o muerto, si colisiona con la explocion de una bomba\par
 {\pntext\f1\'B7\tab}velocidad:\par
@@ -67,24 +81,38 @@ Los unico que tendran un ancho y alto distintos sera el Nivel, y las explosiones
 {\pntext\f0 c.\tab}jugador: lo matan\par
 {\pntext\f0 d.\tab}bloques:  no lo atraviesan\par
 
-\pard\sa200\sl276\slmult1\b Bloques\b0\par
+\pard\sa200\sl276\slmult1\b Bloques\par
+\b0 Bloques que su principal funcion sera bloquearle el paso a los enemigos como al personajes principal. \b\par
 
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 iteracciones:\par
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\b0 iteracciones:\par
 
 \pard 
-{\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
-\fi-360\li1080\sa200\sl276\slmult1 personajes\par
-{\pntext\f0 b.\tab}enemigos\par
+{\pntext\f0 e.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
+\fi-360\li1080\sa200\sl276\slmult1 personajes -> \par
+{\pntext\f0 f.\tab}enemigos ->\par
 
 \pard 
 {\pntext\f0 1.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pndec{\pntxta.}}
 \fi-360\li720\sa200\sl276\slmult1 Destructibles:\par
 
-\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li1080\sa200\sl276\slmult1 interacciones:\par
+\pard\li720\sa200\sl276\slmult1 Los bloques al destruirse, pueden contener una llave o una puerta (solo puede existir una llave y una puerto por nivel).\par
+Tambien pueden contener un aumento, el cual pude ser de tres tipos distintos.\par
+
+\pard\li720\sa200\sl276\slmult1 Se debe asegurar que exista si o si 1 llave y 1 puerta que pueda ser dropea por un bloque.\par
+\highlight2 Podria hacer que los drops esten predefinidos al momento de generar el nivel.\par
+\highlight1 ni idea como generar el contenido dentro de los bloques si es que tienen drop.\highlight0\par
+Quisas que el contenido se asigne desde mismo dentro del constructor, que haya una funcion que haga los calculos si es que la caja tiene drop.\par
+Asegurarme que si se haya genera una llave y una puerta.\highlight2\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1\highlight0 drop: esto dira si tienen drop o no, lo que dropee se definira al momento de haber generado el bloque, se definira de manera aleatoria el contenido de dicho drop.\par
+{\pntext\f1\'B7\tab}Pueden dropear una llave\par
+{\pntext\f1\'B7\tab}pueden dropear una puerta\par
+{\pntext\f1\'B7\tab}pueden dropear un aumento (existen tres aumentos).\par
+{\pntext\f1\'B7\tab}interacciones:\par
 
 \pard 
 {\pntext\f0 a.\tab}{\*\pn\pnlvlbody\pnf0\pnindent0\pnstart1\pnlcltr{\pntxta.}}
-\fi-360\li1440\sa200\sl276\slmult1 explosion bomba.\par
+\fi-360\li1800\sa200\sl276\slmult1 explosion bomba.\par
 
 \pard\sa200\sl276\slmult1\b Bombas:\b0\par
 
@@ -99,7 +127,9 @@ Los unico que tendran un ancho y alto distintos sera el Nivel, y las explosiones
 {\pntext\f0 c.\tab}Enemigos.\par
 {\pntext\f0 d.\tab}Explosion bomba\par
 
-\pard\sa200\sl276\slmult1\b Explosion Bombas:\b0\par
+\pard\sa200\sl276\slmult1\b Explosion Bombas:\par
+\highlight2\b0 Puede ser mejor que explosion solo sea un estado de la bomba. una bomba al explotar pasa al estado "explotion" y cambia su forma de interacinar con el mundo.\highlight0\par
+\highlight3 recordar que la explosion es en forma de cruz, tocara difivir cada columna, y que cada una sea una explosion diferente.\highlight0\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Radio explosion:\par
 {\pntext\f1\'B7\tab}interacciones:\par
@@ -133,9 +163,10 @@ El escenario se inicia ubicando los bloques indestructibles por defecto, luego e
 \fi-360\li1080\sa200\sl276\slmult1 jugador: El escenario se ira moviendo a medida que el jugador se dezplaza desde cierto punto (podria ser desde el centro del escenario) si se mueve hacia la derecha, el escenario se movera hacia al derecha\par
 
 \pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Nivel: nivel actual.\par
-{\pntext\f1\'B7\tab}\highlight4 Bordes\highlight0  (quizas haga una clase para eso): interantuan con el jugador y con los enemigos para que estos no puedan salirce del escenario.\par
+{\pntext\f1\'B7\tab}\highlight2 Bordes (quizas haga una clase para eso): interantuan con el jugador y con los enemigos para que estos no puedan salirce del escenario.\highlight0  \highlight2\par
 
-\pard\sa200\sl276\slmult1\cf1 No Fisico con imagen:\cf0\par
+\pard\sa200\sl276\slmult1\highlight0\tab\highlight3 Mejor poner en los bordes bloques. eso delimitara el escenario.\highlight2\par
+\cf1\highlight0 No Fisico con imagen:\cf0\par
 
 \pard\sa200\sl276\slmult1\b Interfaz:\par
 

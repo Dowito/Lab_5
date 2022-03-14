@@ -13,6 +13,7 @@
 #include <bloque.h>
 #include <destruible.h>
 #include <bomba.h>
+#include <aumento.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Juego; }
@@ -39,6 +40,7 @@ private:
     Bloque *bloque;
     Destruible *destruible;
     Bomba *bomba;
-    Explotion *explotion;
+    Explotion *explocion;
+    Aumento *aumento;
 };
 #endif // JUEGO_H
