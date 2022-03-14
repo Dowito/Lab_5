@@ -8,5 +8,7 @@
         <file>Sprites/Bloque.png</file>
         <file>Sprites/Destruible.png</file>
         <file>Sprites/piso.png</file>
+        <file>Sprites/puerta.png</file>
+        <file>Sprites/Llave.png</file>
     </qresource>
 </RCC>

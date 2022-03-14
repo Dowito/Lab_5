@@ -7,7 +7,7 @@ Destruible::Destruible(QString name,
                        unsigned short width,
                        unsigned short height,
                        bool drop,
-                       QString content):Bloque(name, pos, width, height)
+                       char content):Bloque(name, pos, width, height)
 {
     this->state = state;
     if (state) { //Quisas haga las exepciones por fuera, con una funcion especifica para generar los bloques y su contenido
@@ -16,7 +16,7 @@ Destruible::Destruible(QString name,
     }
     else {
         this->drop = false;
-        this->content = "";
+        this->content = 0;
     }
 }
 
@@ -30,12 +30,14 @@ void Destruible::setDrop(bool newDrop)
     drop = newDrop;
 }
 
-const QString &Destruible::getContent() const
+char Destruible::getContent() const
 {
     return content;
 }
 
-void Destruible::setContent(const QString &newContent)
+void Destruible::setContent(char newContent)
 {
     content = newContent;
 }
+
+

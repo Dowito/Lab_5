@@ -12,17 +12,19 @@ public:
                unsigned short width,
                unsigned short height,
                bool drop,
-               QString content);
+               char content);
 
     bool getDrop() const;
     void setDrop(bool newDrop);
 
-    const QString &getContent() const;
-    void setContent(const QString &newContent);
+
+
+    char getContent() const;
+    void setContent(char newContent);
 
 private:
     bool drop;
-    QString content; //provisional
+    char content; //provisional
 };
 
 #endif // DESTRUIBLE_H

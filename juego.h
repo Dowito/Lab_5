@@ -14,6 +14,8 @@
 #include <destruible.h>
 #include <bomba.h>
 #include <aumento.h>
+#include <llave.h>
+#include <puerta.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Juego; }
@@ -35,12 +37,15 @@ private:
     Ui::Juego *ui;
     QGraphicsScene *escena;
     QTimer *time;
+    Objeto *caracteres[100]; //Puede cargar todas las letras aqui, e ir cambiandoles la posicion
     Personaje *personaje;
     Enemigo *enemigo[2];
     Bloque *bloque;
-    Destruible *destruible;
+    Destruible *destruible[2];
     Bomba *bomba;
     Explotion *explocion;
     Aumento *aumento;
+    Llave *llave;
+    Puerta *puerta;
 };
 #endif // JUEGO_H

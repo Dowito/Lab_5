@@ -28,7 +28,10 @@ Juego::Juego(QWidget *parent)
 {
     QVector<unsigned short> posB= {48,48};
     QVector<unsigned short> posD= {48*3,48};
+    QVector<unsigned short> posPiso = {2*48,2*48};
     QVector<unsigned short> posP= {48*2,48};
+    QVector<unsigned short> posPuerta = {48*3,0};
+    QVector<unsigned short> posLlave = {0*48+(24/2),3*48+(24/2)};
     ui->setupUi(this);
     ui->display->setGeometry(0,0,width(),height());
 
@@ -51,14 +54,23 @@ Juego::Juego(QWidget *parent)
 
     //inicializando bloques
     bloque = new Bloque(":/imagenes/Sprites/Bloque.png", posB, 48, 48);
-    destruible = new Destruible(":/imagenes/Sprites/Destruible.png", posD,48, 48, true, true, "Llave");
+    destruible[0] = new Destruible(":/imagenes/Sprites/piso.png", posPiso, false, 48, 48, false, 0);
+    destruible[1] = new Destruible(":/imagenes/Sprites/Destruible.png", posD, true, 48, 48, true, '1');
+
+    //inicializando llave
+    llave = new Llave(":/imagenes/Sprites/Llave.png", posLlave, 24, 24);
+    //inicializando puerta
+    puerta = new Puerta(":/imagenes/Sprites/puerta.png", posPuerta);
 
     //agregando elementos a mostrar en pantalla a la escena
     escena->addItem(personaje);
     escena->addItem(enemigo[0]);
     escena->addItem(enemigo[1]);
     escena->addItem(bloque);
-    escena->addItem(destruible);
+    escena->addItem(destruible[0]);
+    escena->addItem(destruible[1]);
+    escena->addItem(llave);
+    escena->addItem(puerta);
 
     //agregando la escena a graphcisview
     ui->display->setScene(escena);
@@ -73,8 +85,11 @@ Juego::~Juego()
     delete personaje;
     delete *enemigo;
     delete bloque;
-    delete destruible;
+    delete *destruible;
     delete bomba;
     delete explocion;
+    delete aumento;
+    delete llave;
+    delete puerta;
 }
 
