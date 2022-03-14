@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     bloque.cpp \
     bomba.cpp \
+    destruible.cpp \
     enemigo.cpp \
     main.cpp \
     juego.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 HEADERS += \
     bloque.h \
     bomba.h \
+    destruible.h \
     enemigo.h \
     juego.h \
     objeto.h \
