@@ -26,12 +26,13 @@ Juego::Juego(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Juego)
 {
+    QVector<unsigned short> vec= {48,48};
     ui->setupUi(this);
     ui->display->setGeometry(0,0,width(),height());
 
     time = new QTimer;
     connect(time, SIGNAL(timeout()), this, SLOT(moveEnemigo()));
-    time->start(100);
+
     //inicializando la escena
     escena = new QGraphicsScene;
     escena->setSceneRect(0,0,ui->display->width()-2,ui->display->height()-2);
@@ -50,8 +51,9 @@ Juego::Juego(QWidget *parent)
     escena->addItem(enemigo[0]);
     escena->addItem(enemigo[1]);
     //agregando la escena a graphcisview
-    ui->display->setScene(escena);
 
+    ui->display->setScene(escena);
+    time->start(100);
 }
 
 Juego::~Juego()

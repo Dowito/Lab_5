@@ -3,12 +3,15 @@
 
 #include <QMainWindow>
 #include "ui_juego.h"
-#include <QString>
 #include <QGraphicsScene>
-#include <personaje.h>
-#include <enemigo.h>
 #include <QKeyEvent>
 #include <QTimer>
+
+#include <QString>
+#include <objeto.h>
+#include <personaje.h>
+#include <enemigo.h>
+#include <bloque.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Juego; }
@@ -31,6 +34,7 @@ private:
     QGraphicsScene *escena;
     Personaje *personaje;
     Enemigo *enemigo[2];
+    Bloque *bloque;
     QTimer *time;
 };
 #endif // JUEGO_H
