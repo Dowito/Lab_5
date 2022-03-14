@@ -19,7 +19,8 @@ SOURCES += \
     main.cpp \
     juego.cpp \
     objeto.cpp \
-    personaje.cpp
+    personaje.cpp \
+    puerta.cpp
 
 HEADERS += \
     aumento.h \
@@ -31,7 +32,8 @@ HEADERS += \
     juego.h \
     llave.h \
     objeto.h \
-    personaje.h
+    personaje.h \
+    puerta.h
 
 FORMS += \
     juego.ui

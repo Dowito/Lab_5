@@ -22,7 +22,7 @@ public:
 
 private:
     bool drop;
-    QString content;
+    QString content; //provisional
 };
 
 #endif // DESTRUIBLE_H
