@@ -49,15 +49,15 @@ Juego::Juego(QWidget *parent)
     enemigo[1]->setPos(48,0);
 
     //inicializando bloques
-    bloque[0] = new Bloque(":/imagenes/Sprites/Bloque.png", true, 48, 48, posB, false);
-    bloque[1] = new Bloque(":/imagenes/Sprites/Destruible.png", true, 48, 48, posD, true);
+    bloque = new Bloque(":/imagenes/Sprites/Bloque.png", 48, 48, posB);
+    destruible = new Destruible(":/imagenes/Sprites/Destruible.png", 48, 48, posD, true, true, "Llave");
 
     //agregando elementos a mostrar en pantalla a la escena
     escena->addItem(personaje);
     escena->addItem(enemigo[0]);
     escena->addItem(enemigo[1]);
-    escena->addItem(bloque[0]);
-    escena->addItem(bloque[1]);
+    escena->addItem(bloque);
+    escena->addItem(destruible);
 
     //agregando la escena a graphcisview
     ui->display->setScene(escena);

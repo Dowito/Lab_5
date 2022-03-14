@@ -11,6 +11,8 @@
 #include <personaje.h>
 #include <enemigo.h>
 #include <bloque.h>
+#include <destruible.h>
+#include <bomba.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Juego; }
@@ -31,9 +33,10 @@ public slots:
 private:
     Ui::Juego *ui;
     QGraphicsScene *escena;
+    QTimer *time;
     Personaje *personaje;
     Enemigo *enemigo[2];
-    Bloque *bloque[2];
-    QTimer *time;
+    Bloque *bloque;
+    Destruible *destruible;
 };
 #endif // JUEGO_H

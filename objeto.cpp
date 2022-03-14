@@ -3,6 +3,7 @@
 Objeto::Objeto(QString name)
 {
     setPixmap(QPixmap(name));
+    state = true;
     width = 48;
     height = 48;
     state = true;
@@ -14,6 +15,14 @@ Objeto::Objeto(QString name, bool state)
     this->state = state;
     width = 48;
     height = 48;
+}
+
+Objeto::Objeto(QString name, unsigned short width, unsigned short height)
+{
+    setPixmap(QPixmap(name).scaled(width,height));
+    state = true;
+    this->width = width;
+    this->height = height;
 }
 
 Objeto::Objeto(QString name, bool state, unsigned short width, unsigned short height)
