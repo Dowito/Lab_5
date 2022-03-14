@@ -9,31 +9,23 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    aumento.cpp \
     bloque.cpp \
     bomba.cpp \
-    destruible.cpp \
     enemigo.cpp \
     explotion.cpp \
-    llave.cpp \
     main.cpp \
     juego.cpp \
     objeto.cpp \
-    personaje.cpp \
-    puerta.cpp
+    personaje.cpp
 
 HEADERS += \
-    aumento.h \
     bloque.h \
     bomba.h \
-    destruible.h \
     enemigo.h \
     explotion.h \
     juego.h \
-    llave.h \
     objeto.h \
-    personaje.h \
-    puerta.h
+    personaje.h
 
 FORMS += \
     juego.ui

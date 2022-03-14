@@ -54,23 +54,12 @@ Juego::Juego(QWidget *parent)
 
     //inicializando bloques
     bloque = new Bloque(":/imagenes/Sprites/Bloque.png", posB, 48, 48);
-    destruible[0] = new Destruible(":/imagenes/Sprites/piso.png", posPiso, false, 48, 48, false, 0);
-    destruible[1] = new Destruible(":/imagenes/Sprites/Destruible.png", posD, true, 48, 48, true, '1');
-
-    //inicializando llave
-    llave = new Llave(":/imagenes/Sprites/Llave.png", posLlave, 24, 24);
-    //inicializando puerta
-    puerta = new Puerta(":/imagenes/Sprites/puerta.png", posPuerta);
 
     //agregando elementos a mostrar en pantalla a la escena
     escena->addItem(personaje);
     escena->addItem(enemigo[0]);
     escena->addItem(enemigo[1]);
     escena->addItem(bloque);
-    escena->addItem(destruible[0]);
-    escena->addItem(destruible[1]);
-    escena->addItem(llave);
-    escena->addItem(puerta);
 
     //agregando la escena a graphcisview
     ui->display->setScene(escena);
@@ -84,12 +73,8 @@ Juego::~Juego()
     delete time;
     delete personaje;
     delete *enemigo;
-    delete bloque;
-    delete *destruible;
+    delete bloque;;
     delete bomba;
     delete explocion;
-    delete aumento;
-    delete llave;
-    delete puerta;
 }
 
