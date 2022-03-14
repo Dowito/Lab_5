@@ -28,6 +28,7 @@ Juego::Juego(QWidget *parent)
 {
     QVector<unsigned short> posB= {48,48};
     QVector<unsigned short> posD= {48*3,48};
+    QVector<unsigned short> posP= {48*2,48};
     ui->setupUi(this);
     ui->display->setGeometry(0,0,width(),height());
 
@@ -67,7 +68,11 @@ Juego::Juego(QWidget *parent)
 Juego::~Juego()
 {
     delete ui;
-    delete personaje;
     delete escena;
+    delete time;
+    delete personaje;
+    delete *enemigo;
+    delete bloque;
+    delete destruible;
 }
 

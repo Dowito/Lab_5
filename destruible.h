@@ -13,6 +13,13 @@ public:
                bool state,
                bool drop,
                QString content);
+
+    bool getDrop() const;
+    void setDrop(bool newDrop);
+
+    const QString &getContent() const;
+    void setContent(const QString &newContent);
+
 private:
     bool drop;
     QString content;

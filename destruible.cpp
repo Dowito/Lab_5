@@ -19,3 +19,23 @@ Destruible::Destruible(QString name,
         this->content = "";
     }
 }
+
+bool Destruible::getDrop() const
+{
+    return drop;
+}
+
+void Destruible::setDrop(bool newDrop)
+{
+    drop = newDrop;
+}
+
+const QString &Destruible::getContent() const
+{
+    return content;
+}
+
+void Destruible::setContent(const QString &newContent)
+{
+    content = newContent;
+}
