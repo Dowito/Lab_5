@@ -74,5 +74,7 @@ Juego::~Juego()
     delete *enemigo;
     delete bloque;
     delete destruible;
+    delete bomba;
+    delete explotion;
 }
 

@@ -38,5 +38,7 @@ private:
     Enemigo *enemigo[2];
     Bloque *bloque;
     Destruible *destruible;
+    Bomba *bomba;
+    Explotion *explotion;
 };
 #endif // JUEGO_H

@@ -13,6 +13,7 @@ SOURCES += \
     bomba.cpp \
     destruible.cpp \
     enemigo.cpp \
+    explotion.cpp \
     main.cpp \
     juego.cpp \
     objeto.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     bomba.h \
     destruible.h \
     enemigo.h \
+    explotion.h \
     juego.h \
     objeto.h \
     personaje.h

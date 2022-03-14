@@ -1,12 +1,13 @@
 #ifndef BOMBA_H
 #define BOMBA_H
 #include <objeto.h>
+#include <explotion.h>
 
 class Bomba : public Objeto
 {
 public:
     Bomba() {};
-    Bomba(QString name, unsigned short delay = 0);
+    Bomba(QString name);
 
     unsigned short getRadio() const;
     void setRadio(unsigned short newRadio);

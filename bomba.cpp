@@ -1,9 +1,9 @@
 #include "bomba.h"
 
-Bomba::Bomba(QString name, unsigned short delay):Objeto(name)
+Bomba::Bomba(QString name):Objeto(name)
 {
     this->radio = 1;
-    this->delay = delay;
+    this->delay = 3000;
 }
 
 unsigned short Bomba::getRadio() const
